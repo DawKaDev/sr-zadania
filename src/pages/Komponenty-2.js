@@ -1,5 +1,6 @@
 import React from "react";
 import BlogTile from "../components/BlogTile";
+import uuid from "../components/UUIDGen";
 
 function Komponenty() {
   const posts = [
@@ -22,6 +23,7 @@ function Komponenty() {
         ellipsis={ellipsis}
       />
     ))}
+    <p>Twój uid: {uuid()}</p>
     </>
   )
 }
