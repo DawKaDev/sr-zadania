@@ -1,6 +1,7 @@
 import React from "react";
 import BlogTile from "../components/BlogTile";
 import uuid from "../components/UUIDGen";
+import { FTimer, CTimer } from "../components/Timer";
 
 function Komponenty() {
   const posts = [
@@ -24,6 +25,8 @@ function Komponenty() {
       />
     ))}
     <p>Twój uid: {uuid()}</p>
+    <FTimer/>
+    <CTimer/>
     </>
   )
 }
