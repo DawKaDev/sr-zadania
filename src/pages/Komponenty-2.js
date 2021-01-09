@@ -1,4 +1,5 @@
 import React from "react";
+import BlogTile from "../components/BlogTile";
 
 function Komponenty() {
   const posts = [
@@ -14,12 +15,12 @@ function Komponenty() {
   return (
     <>
     {posts.map((post) => (
-      <div key={post.id}>
-        <h2>{post.title}</h2>
-        <p>{post.intro.length > strLength
-            ? post.intro.substr(0,strLength-1) + ellipsis
-            : post.intro}</p>
-      </div>
+      <BlogTile 
+        key={post.id}
+        item={post}
+        strLength={strLength}
+        ellipsis={ellipsis}
+      />
     ))}
     </>
   )
