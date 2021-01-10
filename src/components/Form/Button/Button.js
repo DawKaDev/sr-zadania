@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { COLORS } from "../../config";
+import { COLORS } from "config";
 
 function Button({ label, bgColor = "wisteria", color = "clouds", icon, children }) {
   const style = {

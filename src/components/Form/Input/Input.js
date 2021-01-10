@@ -1,5 +1,5 @@
 import React from "react";
-import { COLORS } from '../../config';
+import { COLORS } from "config";
 
 function Input({ bgColor, color, borderSize, borderRadius, borderColor}) {
   const style = {
