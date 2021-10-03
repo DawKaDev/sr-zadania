@@ -5,7 +5,7 @@ function Input({ bgColor, color, borderSize, borderRadius, borderColor}) {
   const style = {
     backgroundColor: COLORS[bgColor],
     color: COLORS[color],
-    borderSize: borderSize,
+    borderWidth: borderSize,
     borderRadius: borderRadius,
     borderColor: borderColor
   }
