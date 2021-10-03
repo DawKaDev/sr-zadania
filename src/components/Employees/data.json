@@ -1,0 +1,32 @@
+[
+    {
+        "id": "1",
+        "name": {
+            "first": "Adam",
+            "last": "Diop"
+        },
+        "age": 35,
+        "salary": 1250,
+        "workplace": "secretary"
+    },
+    {
+        "id": "2",
+        "name": {
+            "first": "Ewa",
+            "last": "Westfield"
+        },
+        "age": 42,
+        "salary": 2500,
+        "workplace": "SEO Specialis"
+    },
+    {
+        "id": "3",
+        "name": {
+            "first": "Sven",
+            "last": "Preston"
+        },
+        "age": 22,
+        "salary": 2050,
+        "workplace": "Data analyst"
+    }
+]
