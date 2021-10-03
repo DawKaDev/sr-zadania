@@ -1,8 +1,12 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fas } from "@fortawesome/free-solid-svg-icons";
 import { COLORS } from "config";
 
-function Button({ label, bgColor = "wisteria", color = "clouds", icon, children }) {
+library.add(fas);
+
+function Button({ label, bgColor = "wisteria", color = "clouds", icon, children, onClick }) {
   const style = {
     backgroundColor: COLORS[bgColor],
     color: COLORS[color],
@@ -13,7 +17,7 @@ function Button({ label, bgColor = "wisteria", color = "clouds", icon, children 
   }
   return (
     <>
-    <button style={style}>
+    <button style={style} onClick={onClick}>
       { icon ? (<><FontAwesomeIcon icon={icon}/>{" "}</>) : "" }
       { label ? label : children }
     </button>
