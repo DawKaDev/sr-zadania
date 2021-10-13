@@ -6,30 +6,39 @@ const styles = {
     textAlign: "left"
   },
   title: {
-    fontSize: "16px",
+    fontSize: 16,
     color: "#fff",
     background: "#19a540",
     textTransform: "uppercase",
     margin: 0,
-    padding: "15px"
+    padding: 15
   },
   intro: {
-    fontSize: "12px",
+    fontSize: 12,
     padding: "0 15px"
   }
 }
 
-function BlogTile({item, strLength, ellipsis}) {
+BlogTile.Title =  function BlogTitle({children}) {
+  return (
+    <h2 style={styles.title}>
+      {children}
+    </h2>
+  )
+}
+
+BlogTile.Intro = function BlogIntro({children}) {
+  return (
+    <p style={styles.intro}>
+      {children}
+    </p>
+  )
+}
+
+export default function BlogTile({children}) {
   return (
     <div style={styles.post}>
-      <h2 style={styles.title}>{item.title}</h2>
-      <p style={styles.intro}>
-        {item.intro.length > strLength
-        ? item.intro.substr(0,strLength-1) + ellipsis
-        : item.intro}
-      </p>
+      {children}
     </div>
   );
 }
-
-export default BlogTile;
