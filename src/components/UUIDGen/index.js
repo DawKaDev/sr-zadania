@@ -1,19 +1,17 @@
-function uuid() {
-  let id = "";
-  const strLength = 32;
-  const breakepoint = "-";
-  const breakepoints = [9,14,19,24];
-  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-  const charsAmount = characters.length;
-
-  for(let i = 1; i <= strLength; i++) {
-    if(breakepoints.includes(i)) {
-      id += breakepoint;
-    } else {
-      id += characters.charAt(Math.floor(Math.random() * charsAmount));
-    }
-  }
-  return id;
+import React from "react";
+function Uuid() {
+  const uid = () => {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+    const char = Math.random() * 16 | 0;
+    const variant = Math.floor(Math.random() * 4 + 8); // available 8,9,a,b
+    let v = c === 'x' ? char : variant;
+    return v.toString(16);
+  })}
+    return (
+      <>
+      {uid()}
+      </>
+    )
 }
 
-export default uuid;
+export default Uuid;
