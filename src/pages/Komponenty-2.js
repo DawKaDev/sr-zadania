@@ -1,7 +1,8 @@
 import React from "react";
+import { cutText } from "components/utils";
 import BlogTile from "../components/BlogTile";
-import uuid from "../components/UUIDGen";
-import { FTimer, CTimer } from "../components/Timer";
+import Uuid from "../components/UUIDGen";
+import { FunctionTimer, ClassTimer } from "../components/Timer";
 
 function Komponenty() {
   const posts = [
@@ -11,22 +12,18 @@ function Komponenty() {
       intro: 'Po przegranym zakładzie z Piotrem Żyłą nasz mistrz olimpijski zgolił wąsy'
     }
   ]
-  const strLength = 25;
-  const ellipsis= "...";
 
   return (
     <>
     {posts.map((post) => (
-      <BlogTile 
-        key={post.id}
-        item={post}
-        strLength={strLength}
-        ellipsis={ellipsis}
-      />
+      <BlogTile key={post.id}>
+        <BlogTile.Title>{post.title}</BlogTile.Title>
+        <BlogTile.Intro>{cutText(post.intro)}</BlogTile.Intro>
+      </BlogTile>
     ))}
-    <p>Twój uid: {uuid()}</p>
-    <FTimer/>
-    <CTimer/>
+    <p>Twój uid: <Uuid/></p>
+    <FunctionTimer/>
+    <ClassTimer/>
     </>
   )
 }
