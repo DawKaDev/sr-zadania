@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class CTimer extends Component {
+export default class ClassTimer extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -30,5 +30,3 @@ class CTimer extends Component {
     )
   }
 }
-
-export default CTimer;

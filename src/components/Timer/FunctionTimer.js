@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-function FTimer() {
+export default function FunctionTimer() {
   const [time, setTime] = useState(0);
 
   const updateTime = () => {
@@ -16,5 +16,3 @@ function FTimer() {
     <div>(Function) You spent {time} seconds on this page</div>
   )
 }
-
-export default FTimer;
