@@ -1,4 +1,4 @@
-import CTimer from "./CTimer";
-import FTimer from "./FTimer";
+import ClassTimer from "./ClassTimer";
+import FunctionTimer from "./FunctionTimer";
 
-export { CTimer, FTimer}
+export { ClassTimer, FunctionTimer }
