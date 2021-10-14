@@ -11,8 +11,8 @@ function Button({ label, bgColor = "wisteria", color = "clouds", icon, children,
     backgroundColor: COLORS[bgColor],
     color: COLORS[color],
     border: 0,
-    padding: "15px",
-    margin: "15px",
+    padding: 15,
+    margin: 15,
     cursor: "pointer"
   }
   return (

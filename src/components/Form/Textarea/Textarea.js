@@ -1,7 +1,7 @@
 import React from "react";
 import { COLORS } from "config";
 
-function Textarea({ bgColor, color, borderSize, borderRadius, borderColor}) {
+function Textarea({ value, bgColor, color, borderSize, borderRadius, borderColor}) {
   const style = {
     backgroundColor: COLORS[bgColor],
     color: COLORS[color],
@@ -11,7 +11,7 @@ function Textarea({ bgColor, color, borderSize, borderRadius, borderColor}) {
   }
 
   return (
-    <textarea type="text" style={style}/>
+    <textarea value={value} style={style}/>
   );
 }
 

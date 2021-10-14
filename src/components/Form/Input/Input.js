@@ -1,7 +1,7 @@
 import React from "react";
 import { COLORS } from "config";
 
-function Input({ bgColor, color, borderSize, borderRadius, borderColor}) {
+function Input({ value, bgColor, color, borderSize, borderRadius, borderColor}) {
   const style = {
     backgroundColor: COLORS[bgColor],
     color: COLORS[color],
@@ -11,7 +11,7 @@ function Input({ bgColor, color, borderSize, borderRadius, borderColor}) {
   }
 
   return (
-    <input type="text" style={style}/>
+    <input type="text" value={value} style={style}/>
   );
 }
 
