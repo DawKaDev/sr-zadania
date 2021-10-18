@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
@@ -17,14 +17,15 @@ function Button({ label, bgColor = "wisteria", color = "clouds", icon, children,
   }
   const button = useRef();
 
-  useEffect(() => {
+  const handleMouseOver = () => {
     const currentButton = button.current;
     currentButton.style.backgroundColor="#f00";
     currentButton.style.color="#fff";
-  },[])
+  }
+
   return (
     <>
-    <button ref={button} style={style} onClick={onClick}>
+    <button ref={button} style={style} onClick={onClick} onMouseOver={handleMouseOver}>
       { icon ? (<><FontAwesomeIcon icon={icon}/>{" "}</>) : "" }
       { label ? label : children }
     </button>
