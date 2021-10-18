@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 
 const styles = {
   alert: {
-    borderBottom: "1px solid red"
+    boxShadow: "0 0 5px 0 red"
   }
 }
 
@@ -95,7 +95,7 @@ function FormValid() {
       if(field.required & !field.checked) {
         return setErrors({
           ...errors,
-          [fieldName]: `Field "${fieldName}" must be selected`
+          [fieldName]: `Field "${fieldName}" is required`
         })
       }
     }
@@ -118,30 +118,30 @@ function FormValid() {
   return (
     <>
     <form onSubmit={handleSubmit} ref={myForm}>
-        <div style={errors.name ? {...styles.alert} : {}}>
+        <div>
           <label htmlFor="name">Name</label>
-          <input type="text" name="name" id="name" min={3} max={20} value={name} onBlur={fieldValid} onChange={handleNameChange} required/>
+          <input style={errors.name && {...styles.alert}} type="text" name="name" id="name" min={3} max={20} value={name} onBlur={fieldValid} onChange={handleNameChange} required/>
           {errors.name && <p>{errors.name}</p>}
         </div>
-        <div style={errors.email ? {...styles.alert} : {}}>
+        <div>
           <label htmlFor="email">Email</label>
-          <input type="email" name="email" id="email" value={email} onBlur={fieldValid} onChange={handleEmailChange}/>
+          <input style={errors.email && {...styles.alert}} type="email" name="email" id="email" value={email} onBlur={fieldValid} onChange={handleEmailChange}/>
           {errors.email && <p>{errors.email}</p>}
         </div>
-        <div style={errors.bio ? {...styles.alert} : {}}>
+        <div>
           <label htmlFor="bio">Bio</label>
-          <textarea name="bio" id="bio" rows="4" value={bio} onBlur={fieldValid} onChange={handleBioChange} required/>
+          <textarea style={errors.bio && {...styles.alert}} name="bio" id="bio" rows="4" value={bio} onBlur={fieldValid} onChange={handleBioChange} required/>
           {errors.bio && <p>{errors.bio}</p>}
         </div>
-        <div style={errors.gender ? {...styles.alert} : {}}>
+        <div>
           <label htmlFor="gender">Gender</label>
-          <input type="radio" name="gender" value="0" onBlur={fieldValid} onChange={handleGenderChange} checked={gender==="0"} required/> Male
-          <input type="radio" name="gender" value="1" onBlur={fieldValid} onChange={handleGenderChange} checked={gender==="1"} required/> Female
+          <input style={errors.gender && {...styles.alert}} type="radio" name="gender" value="0" onBlur={fieldValid} onChange={handleGenderChange} checked={gender==="0"} required/> Male
+          <input style={errors.gender && {...styles.alert}} type="radio" name="gender" value="1" onBlur={fieldValid} onChange={handleGenderChange} checked={gender==="1"} required/> Female
           {errors.gender && <p>{errors.gender}</p>}
         </div>
-        <div style={errors.regulations ? {...styles.alert} : {}}>
+        <div>
           <label htmlFor="regulations">Regulations</label>
-          <input type="checkbox" name="regulations" onBlur={fieldValid} onChange={handleAcceptedChange} checked={accept} required/>
+          <input style={errors.regulations && {...styles.alert}} type="checkbox" name="regulations" onBlur={fieldValid} onChange={handleAcceptedChange} checked={accept} required/>
           {errors.regulations && <p>{errors.regulations}</p>}
         </div>
         <button type="submit" disabled={isDisabled()}>Send</button>
