@@ -6,7 +6,7 @@ import { EmployeesBox } from "components/Employees";
 
 function Modul3() {
   return (
-    <div style={{width:800, margin:"0 auto"}}>
+    <div>
       <h3>Buttons</h3>
       <Button label="Label from prop" bgColor="belize hole"/>
       <Button>Label from children</Button>

@@ -34,7 +34,7 @@ function Modul4() {
   }
 
   return (
-    <div style={{width: "600px", margin: "0 auto"}}>
+    <div>
       <h3>Tip component (function)</h3>
       <BillFunc/>
       <h3>Tip component (class)</h3>
