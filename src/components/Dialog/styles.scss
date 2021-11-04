@@ -1,0 +1,67 @@
+.dialog__mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0, 0.3);
+}
+.dialog__window{
+  position: relative; 
+  top: 50%;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  max-width: 40%;
+  width:auto;
+  min-width: 30%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 10px 10px #999;
+  button {
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    &:hover {
+      background: #ddd;
+      color: #333;
+    }
+  }
+}
+.dialog__header{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: start;
+  background: #efefef;
+  color: #555;
+  padding: 15px;
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.dialog__close {
+  width: 30px;
+  height: 30px;
+  border-radius: 4px;
+  font-size: 20px;
+}
+.dialog__body{
+  background: #fff;
+  color: #333;
+  padding: 30px 15px;
+  line-height: 1;
+  font-size: 14px;
+}
+.dialog__footer{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: end;
+  background: #efefef;
+  button {
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 15px;
+  }
+}

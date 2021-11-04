@@ -29,7 +29,7 @@ function Card({ title, intro, content, image, showMore }) {
           color="wisteria"
           onClick={handleShowMore}/>
       </div>
-      <div class={`card__content${active ? " active" : ""}`}>
+      <div className={`card__content${active ? " active" : ""}`}>
         <p>{content}</p>
       </div>
     </div>
