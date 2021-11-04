@@ -24,12 +24,10 @@ export function Button({ label, bgColor = "wisteria", color = "clouds", icon, ch
   }
 
   return (
-    <>
     <button ref={button} style={style} onClick={onClick} onMouseOver={handleMouseOver}>
       { icon ? (<><FontAwesomeIcon icon={icon}/>{" "}</>) : "" }
       { label ? label : children }
     </button>
-    </>
   )
 }
 
@@ -43,11 +41,9 @@ export const RefButton = forwardRef(({ label, bgColor = "wisteria", color = "clo
     cursor: "pointer"
   }
   return (
-    <>
     <button ref={ref} style={style} onClick={onClick} onMouseOver={handleMouseOver}>
       { icon ? (<><FontAwesomeIcon icon={icon}/>{" "}</>) : "" }
       { label ? label : children }
     </button>
-    </>
   )
 })
