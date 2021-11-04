@@ -1,9 +1,10 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
-function MenuItem({ to, children, isActive }) {
+function MenuItem({ to, children }) {
   return (
     <li className="menu__item">
-      <a href={to} style={{color: isActive ? "red" : "blue"}}>{children}</a>
+      <NavLink to={to} activeClassName="active">{children}</NavLink>
     </li>
   )
 }

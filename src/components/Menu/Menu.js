@@ -1,8 +1,8 @@
 import React from "react";
 
-function Menu({ children }) {
+function Menu({ className, children }) {
   return (
-    <ul className="menu">{children}</ul>
+    <ul className={`menu ${className}`}>{children}</ul>
   )
 }
 
