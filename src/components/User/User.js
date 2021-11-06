@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function checkExist(field, message){
   return field ? field : message ? message : "empty";
@@ -35,6 +36,12 @@ export default function User({user}) {
       <div className="user__register">
         <span className="register__date">{makeDate(user.registered.date)}</span>
       </div>
+      <Link className="user__button" to={{
+        pathname: `/users/${user.login.uuid}`,
+        state: {
+          user
+        }
+      }}>Show profile</Link>
     </div>
   )
 }
