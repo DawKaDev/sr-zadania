@@ -6,7 +6,7 @@ import { COLORS } from "config";
 
 library.add(fas);
 
-export function Button({ label, bgColor = "wisteria", color = "clouds", icon, children, onClick }) {
+export function Button({ label, bgColor = "wisteria", color = "clouds", icon, children, onClick, ...rest }) {
   const style = {
     backgroundColor: COLORS[bgColor],
     color: COLORS[color],
@@ -17,14 +17,8 @@ export function Button({ label, bgColor = "wisteria", color = "clouds", icon, ch
   }
   const button = useRef();
 
-  const handleMouseOver = () => {
-    const currentButton = button.current;
-    currentButton.style.backgroundColor="#f00";
-    currentButton.style.color="#fff";
-  }
-
   return (
-    <button ref={button} style={style} onClick={onClick} onMouseOver={handleMouseOver}>
+    <button ref={button} style={style} onClick={onClick} {...rest}>
       { icon ? (<><FontAwesomeIcon icon={icon}/>{" "}</>) : "" }
       { label ? label : children }
     </button>

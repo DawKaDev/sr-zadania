@@ -21,7 +21,7 @@ export default function BudgetForm({addAction}) {
   return (
     <form className="budget form" onSubmit={handleSubmit(submitForm)}>
       <div className="form__control form__control--radio">
-        <p class="control__title">Type</p>
+        <p className="control__title">Type</p>
         <label htmlFor="income">
           <input id="income" type="radio" value={0} {...register("type", { required: true })}/>
            Income

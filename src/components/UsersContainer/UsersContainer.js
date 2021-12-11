@@ -53,7 +53,6 @@ UsersContainer.UsersList = ({data, activeUser, selectAction}) => {
 UsersContainer.User = ({user}) => {
   return (
     <div className="user">
-    {console.log(user)}
     {Object.keys(user).length > 0
       ? <>
           <p className="user__name">{user.firstName} {user.lastName}</p>
@@ -78,7 +77,7 @@ UsersContainer.UserSearch = ({searchAction}) => {
   }
   return (
     <form onSubmit={handleSubmit}>
-      <label for="searchUser">Search</label>
+      <label htmlFor="searchUser">Search</label>
       <input type="text" name="searchUser" id="searchUser"/>
       <button type="button" onClick={()=>searchAction("")}>Reset</button>
     </form>

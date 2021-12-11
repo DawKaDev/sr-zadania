@@ -11,7 +11,7 @@ function Textarea({ value, bgColor, color, borderSize, borderRadius, borderColor
   }
 
   return (
-    <textarea value={value} style={style}/>
+    <textarea value={value} style={style} readOnly/>
   );
 }
 

@@ -15,8 +15,7 @@ form{
   }
 }
 .list{
-  display: flex;
-  flex-direction: column;
+  display: block;
   height: 250px;
   overflow-y: scroll; 
   padding: 0;
@@ -75,7 +74,7 @@ form{
   .sum{
     display: flex;
     align-items: center;
-    justify-content: end;
+    justify-content: flex-end;
     width: 30%;
     font-size: 16px;
     text-align: right;

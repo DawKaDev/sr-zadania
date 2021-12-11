@@ -1,3 +1,5 @@
-import { Dialog } from "./Dialog";
+import { Dialog, useDialog } from "./Dialog";
 
-export default Dialog;
+export default { 
+  Dialog: Dialog,
+  useDialog: useDialog };

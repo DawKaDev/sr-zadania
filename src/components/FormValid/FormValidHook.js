@@ -33,7 +33,7 @@ export default function FormValidHook() {
         {errors.bio?.type === 'required' && <p>Biography is required</p>}
       </div>
       <div>
-        <lbael>Gender</lbael>
+        <label>Gender</label>
         <input style={errors.gender && {...styles.alert}} type="radio" value="0" {...register("gender", { required: true })}/> Male
         <input style={errors.gender && {...styles.alert}} type="radio" value="1" {...register("gender", { required: true })}/> Female
         {errors.gender?.type === 'required' && <p>Gender is required</p>}
