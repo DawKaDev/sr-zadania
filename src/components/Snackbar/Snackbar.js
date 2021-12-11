@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import "./styles.scss";
 
-export default function Snackbar({children,type, buttons, position = "top right", animation = "slideRight", hideAction}) {
+export default function Snackbar({children, type, id, buttons, position = "top right", animation = "slideRight", hideAction}) {
   const snackbarRef = useRef();  
   const text = `snackbar__container ${position}`;
   let timer = null;
@@ -31,7 +31,7 @@ export default function Snackbar({children,type, buttons, position = "top right"
       snackbar.classList.remove(animIn);
       snackbar.classList.add(animOut);
       setTimeout(()=>{
-        hideAction(false);
+        hideAction(id);
       },1000);
   }
 
