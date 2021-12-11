@@ -27,7 +27,7 @@ export default function UserList() {
     <>
     <div className="users__box">
       {users.map(user => (
-        <ReactPlaceholder key={`u-${user.login.uuid}`} type="media" ready={isReady} showLoadingAnimation rows={6}>
+        <ReactPlaceholder key={`u-${user.login.uuid}`} style={{boxSizing: "border-box", width: "50%", padding: 15}} type="media" ready={isReady} showLoadingAnimation rows={6}>
           <User user={user}/>
         </ReactPlaceholder>
       ))}
