@@ -9,8 +9,11 @@ import Komponenty from "./pages/Komponenty-2";
 import Modul3 from "./pages/Modul3";
 import Modul4 from "./pages/Modul4";
 import Modul5 from "./pages/Modul5";
+import { Modul7 } from "./pages/Modul7";
 import Users from "./pages/Users";
 import UserProfile from "./pages/UserProfile";
+import UserDetails from "components/User/UserDetails";
+import Profile from "./pages/Profile";
 
 function App() {
   const [showMenu, setShowMenu] = useState(false);
@@ -48,6 +51,9 @@ function App() {
               <li>
                 <Link to="/modul5">Moduł 5</Link>
               </li>
+              <li>
+                <Link to="/modul7">Moduł 7</Link>
+              </li>
             </ul>
           </header>
           <div className="body__container">
@@ -56,11 +62,14 @@ function App() {
               <Route path="/modul3" component={Modul3}/>
               <Route path="/modul4" component={Modul4}/>
               <Route path="/modul5" component={Modul5}/>
+              <Route path="/modul7" component={Modul7}/>
               <Route path="/home"><Section title="Home"/></Route>
               <Route path="/about"><Section title="About"/></Route>
               <Route path="/contact"><Section title="Contact"/></Route>
+              <Route exact path="/users/:id" component={UserDetails}/>
               <Route path="/users" component={Users}/>
               <Route path="/user-profile" component={UserProfile}/>
+              <Route path="/subscriber/:profileID" component={Profile}/>
             </Switch>
           </div>
         </div>
