@@ -26,8 +26,8 @@ export default function Snackbar({children, type, id, buttons, position = "top r
     closeAction(snackbar);
   }
   const closeAction = (snackbar) => {
-      const animIn = animation + "-in";
-      const animOut = animation + "-out";
+      const animIn = `${animation}-in`;
+      const animOut = `${animation}-out`;
       snackbar.classList.remove(animIn);
       snackbar.classList.add(animOut);
       setTimeout(()=>{
