@@ -16,3 +16,7 @@ export function prepareMessage(content, keys, data) {
   })
   return newMessage;
 }
+
+export function Sum(a, b) {
+  return Number(a) + Number(b);
+}
