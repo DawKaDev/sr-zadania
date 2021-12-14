@@ -10,6 +10,7 @@ import Modul3 from "./pages/Modul3";
 import Modul4 from "./pages/Modul4";
 import Modul5 from "./pages/Modul5";
 import { Modul7 } from "./pages/Modul7";
+import Modul8 from "./pages/Modul8";
 import Users from "./pages/Users";
 import UserProfile from "./pages/UserProfile";
 import UserDetails from "components/User/UserDetails";
@@ -54,6 +55,9 @@ function App() {
               <li>
                 <Link to="/modul7">Moduł 7</Link>
               </li>
+              <li>
+                <Link to="/modul8">Moduł 8</Link>
+              </li>
             </ul>
           </header>
           <div className="body__container">
@@ -63,6 +67,7 @@ function App() {
               <Route path="/modul4" component={Modul4}/>
               <Route path="/modul5" component={Modul5}/>
               <Route path="/modul7" component={Modul7}/>
+              <Route path="/modul8" component={Modul8}/>
               <Route path="/home"><Section title="Home"/></Route>
               <Route path="/about"><Section title="About"/></Route>
               <Route path="/contact"><Section title="Contact"/></Route>
