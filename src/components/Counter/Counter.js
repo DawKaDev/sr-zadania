@@ -4,10 +4,10 @@ export default function Counter({start}) {
   const [counter, setCounter] = useState(start);
   const [newCounter, setNewCounter] = useState();
 
-  const handleIncrementClick = () => {
+  const handleIncreaseClick = () => {
     setCounter(counter + 1);
   }
-  const handleDecrementClick = () => {
+  const handleDecreaseClick = () => {
     setCounter(counter - 1);
   }
   const handleSetCounter = () => {
@@ -21,9 +21,9 @@ export default function Counter({start}) {
   }
   return (
     <div className='counter'>
-      <button type='button' className='button counter__decrement' onClick={handleDecrementClick}>-</button>
+      <button type='button' className='button counter__decrease' onClick={handleDecreaseClick}>-</button>
       <span className='counter__result'>{counter}</span>
-      <button type='button' className='button counter__increment' onClick={handleIncrementClick}>+</button>
+      <button type='button' className='button counter__increase' onClick={handleIncreaseClick}>+</button>
       <input type="number" name='counter' className='counter__input' onChange={handleSetStartChange}/>
       <button type='button' className='button counter__set' onClick={handleSetCounter}>Set</button>
       <button type='button' className='button counter__reset' onClick={handleResetCounter}>Reset</button>
