@@ -4,6 +4,7 @@ import "pages/styles.scss";
 
 import { Menu, MenuItem } from "components/Menu";
 import Section from "./pages/Section";
+import { AccessContext } from './contexts';
 
 import Komponenty from "./pages/Komponenty-2";
 import Modul3 from "./pages/Modul3";
@@ -11,6 +12,7 @@ import Modul4 from "./pages/Modul4";
 import Modul5 from "./pages/Modul5";
 import { Modul7 } from "./pages/Modul7";
 import Modul8 from "./pages/Modul8";
+import Modul9 from "./pages/Modul9";
 import Users from "./pages/Users";
 import UserProfile from "./pages/UserProfile";
 import UserDetails from "components/User/UserDetails";
@@ -18,6 +20,12 @@ import Profile from "./pages/Profile";
 
 function App() {
   const [showMenu, setShowMenu] = useState(false);
+  const [logged, setIsLogged] = useState(false);
+  const access = {
+    isLogin : logged,
+    logIn : () => setIsLogged(true),
+    logOut: () => setIsLogged(false)
+  }
   return (
     <div className="main">
       <BrowserRouter>
@@ -58,6 +66,9 @@ function App() {
               <li>
                 <Link to="/modul8">Moduł 8</Link>
               </li>
+              <li>
+                <Link to="modul9">Moduł 9</Link>
+              </li>
             </ul>
           </header>
           <div className="body__container">
@@ -68,6 +79,9 @@ function App() {
               <Route path="/modul5" component={Modul5}/>
               <Route path="/modul7" component={Modul7}/>
               <Route path="/modul8" component={Modul8}/>
+              <AccessContext.Provider value={access}>
+              <Route path="/modul9" component={Modul9}/>
+              </AccessContext.Provider>
               <Route path="/home"><Section title="Home"/></Route>
               <Route path="/about"><Section title="About"/></Route>
               <Route path="/contact"><Section title="Contact"/></Route>
