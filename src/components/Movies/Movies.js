@@ -1,9 +1,12 @@
 import React from 'react';
+import WithUser from 'components/withUser/withUser';
 
-export default function Movies() {
+function Movies(props) {
   return (
     <div className='container movies'>
-      <h3>Movies</h3>
+      <h3>Movies {props.email}</h3>
     </div>
   )
 }
+
+export default WithUser(Movies);

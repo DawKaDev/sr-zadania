@@ -43,6 +43,8 @@ function App() {
             <MenuItem to="/about">About</MenuItem>
             <MenuItem to="/contact">Contact</MenuItem>
             <MenuItem to="/users">Users</MenuItem>
+            <MenuItem to="/movies">Movies</MenuItem>
+            <MenuItem to="/places">Places</MenuItem>
             <button onClick={()=>setShowMenu(!showMenu)}>hide menu</button>
           </Menu>
         </div>

@@ -1,9 +1,12 @@
 import React from 'react';
+import WithUser from 'components/withUser/withUser';
 
-export default function Places() {
+function Places(props) {
   return (
     <div className='container places'>
-      <h3>Places</h3>
+      <h3>Places {props.email}</h3>
     </div>
   )
 }
+
+export default WithUser(Places);
