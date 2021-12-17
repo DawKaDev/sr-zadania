@@ -4,7 +4,7 @@ import "pages/styles.scss";
 
 import { Menu, MenuItem } from "components/Menu";
 import Section from "./pages/Section";
-import { AccessContext } from './contexts';
+import { AccessContext, UserContext } from './contexts';
 
 import Komponenty from "./pages/Komponenty-2";
 import Modul3 from "./pages/Modul3";
@@ -21,11 +21,16 @@ import Profile from "./pages/Profile";
 function App() {
   const [showMenu, setShowMenu] = useState(false);
   const [logged, setIsLogged] = useState(false);
+  const user = {
+    email: "jan@kowalski.pl",
+    isAdmin: false
+  };
   const access = {
     isLogin : logged,
     logIn : () => setIsLogged(true),
     logOut: () => setIsLogged(false)
-  }
+  };
+  
   return (
     <div className="main">
       <BrowserRouter>
@@ -80,7 +85,9 @@ function App() {
               <Route path="/modul7" component={Modul7}/>
               <Route path="/modul8" component={Modul8}/>
               <AccessContext.Provider value={access}>
-              <Route path="/modul9" component={Modul9}/>
+                <UserContext.Provider value={user}>
+                  <Route path="/modul9" component={Modul9}/>
+                </UserContext.Provider>
               </AccessContext.Provider>
               <Route path="/home"><Section title="Home"/></Route>
               <Route path="/about"><Section title="About"/></Route>
