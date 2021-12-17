@@ -17,6 +17,8 @@ import Users from "./pages/Users";
 import UserProfile from "./pages/UserProfile";
 import UserDetails from "components/User/UserDetails";
 import Profile from "./pages/Profile";
+import Places from "components/Places";
+import Movies from "components/Movies";
 
 function App() {
   const [showMenu, setShowMenu] = useState(false);
@@ -30,7 +32,7 @@ function App() {
     logIn : () => setIsLogged(true),
     logOut: () => setIsLogged(false)
   };
-  
+
   return (
     <div className="main">
       <BrowserRouter>
@@ -87,6 +89,8 @@ function App() {
               <AccessContext.Provider value={access}>
                 <UserContext.Provider value={user}>
                   <Route path="/modul9" component={Modul9}/>
+                  <Route path="/movies" component={Movies}/>
+                  <Route path="/places" component={Places}/>
                 </UserContext.Provider>
               </AccessContext.Provider>
               <Route path="/home"><Section title="Home"/></Route>
