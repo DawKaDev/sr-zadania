@@ -25,10 +25,10 @@ function Modul3() {
       />
       <h3>Menu</h3>
       <Menu>
-        <MenuItem to="/">Home</MenuItem>
-        <MenuItem to="/about">About</MenuItem>
-        <MenuItem to="/contact">Contact</MenuItem>
-        <MenuItem to="/posts">Posts</MenuItem>
+        <MenuItem to="/" label="Home"/>
+        <MenuItem to="/about" label="About"/>
+        <MenuItem to="/contact" label="Contact"/>
+        <MenuItem to="/posts" label="Posts"/>
       </Menu>
       <h3>Employees</h3>
       <EmployeesBox/>
