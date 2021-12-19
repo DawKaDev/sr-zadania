@@ -50,6 +50,7 @@ li {
   bottom:0;
   min-height: 100vh;
   transition: all 0.5s;
+  z-index: 9999;
   &.show {
     left: 0;
   }
