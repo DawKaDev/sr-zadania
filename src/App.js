@@ -4,7 +4,7 @@ import "pages/styles.scss";
 
 import { Menu, MenuItem } from "components/Menu";
 import Section from "./pages/Section";
-import { AccessContext, UserContext } from './contexts';
+import { AccessContext, UserContext, ViewContext } from './contexts';
 
 import Komponenty from "./pages/Komponenty-2";
 import Modul3 from "./pages/Modul3";
@@ -19,10 +19,12 @@ import UserDetails from "components/User/UserDetails";
 import Profile from "./pages/Profile";
 import Places from "components/Places";
 import Movies from "components/Movies";
+import useMobile from "hooks/useMobile";
 
 function App() {
   const [showMenu, setShowMenu] = useState(false);
   const [logged, setIsLogged] = useState(false);
+  const isMobile = useMobile();
   const user = {
     email: "jan@kowalski.pl",
     isAdmin: false
@@ -32,19 +34,23 @@ function App() {
     logIn : () => setIsLogged(true),
     logOut: () => setIsLogged(false)
   };
+  const view = {
+    isMobile: isMobile
+  }
 
   return (
     <div className="main">
       <BrowserRouter>
+      <ViewContext.Provider value={view}>
         <div className={`navMenu ${showMenu ? "show" : ""}`}>
           <h3>Menu</h3>
           <Menu className="sideMenu">
-            <MenuItem to="/home">Home</MenuItem>
-            <MenuItem to="/about">About</MenuItem>
-            <MenuItem to="/contact">Contact</MenuItem>
-            <MenuItem to="/users">Users</MenuItem>
-            <MenuItem to="/movies">Movies</MenuItem>
-            <MenuItem to="/places">Places</MenuItem>
+            <MenuItem to="/home" label="home" icon="home"/>
+            <MenuItem to="/about" label="about" icon="address-card"/>
+            <MenuItem to="/contact" label="contact" icon="phone"/>
+            <MenuItem to="/users" label="users" icon="users"/>
+            <MenuItem to="/movies" label="movies" icon="film"/>
+            <MenuItem to="/places" label="places" icon="globe"/>
             <button onClick={()=>setShowMenu(!showMenu)}>hide menu</button>
           </Menu>
         </div>
@@ -88,13 +94,6 @@ function App() {
               <Route path="/modul5" component={Modul5}/>
               <Route path="/modul7" component={Modul7}/>
               <Route path="/modul8" component={Modul8}/>
-              <AccessContext.Provider value={access}>
-                <UserContext.Provider value={user}>
-                  <Route path="/modul9" component={Modul9}/>
-                  <Route path="/movies" component={Movies}/>
-                  <Route path="/places" component={Places}/>
-                </UserContext.Provider>
-              </AccessContext.Provider>
               <Route path="/home"><Section title="Home"/></Route>
               <Route path="/about"><Section title="About"/></Route>
               <Route path="/contact"><Section title="Contact"/></Route>
@@ -102,9 +101,17 @@ function App() {
               <Route path="/users" component={Users}/>
               <Route path="/user-profile" component={UserProfile}/>
               <Route path="/subscriber/:profileID" component={Profile}/>
+              <AccessContext.Provider value={access}>
+                <UserContext.Provider value={user}>
+                  <Route path="/modul9" component={Modul9}/>
+                  <Route path="/movies" component={Movies}/>
+                  <Route path="/places" component={Places}/>
+                </UserContext.Provider>
+              </AccessContext.Provider>
             </Switch>
           </div>
         </div>
+        </ViewContext.Provider>
       </BrowserRouter>
     </div>
   );
