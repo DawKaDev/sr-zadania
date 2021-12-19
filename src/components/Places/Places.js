@@ -1,5 +1,5 @@
 import React from 'react';
-import WithUser from 'components/withUser/withUser';
+import WithUser from 'hocs/withUser/withUser';
 
 function Places(props) {
   return (
