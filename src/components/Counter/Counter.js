@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 export default function Counter({start}) {
   const [counter, setCounter] = useState(start);
@@ -11,10 +12,10 @@ export default function Counter({start}) {
     setCounter(counter - 1);
   }
   const handleSetCounter = () => {
-    setCounter(newCounter);
+    setCounter(Number(newCounter));
   }
   const handleSetStartChange = (e) => {
-    setNewCounter(e.target.value);
+    setNewCounter(Number(e.target.value));
   }
   const handleResetCounter = () => {
     setCounter(start);
@@ -29,6 +30,10 @@ export default function Counter({start}) {
       <button type='button' className='button counter__reset' onClick={handleResetCounter}>Reset</button>
     </div>
   )
+}
+
+Counter.propTypes = {
+  start: PropTypes.number
 }
 
 Counter.defaultProps = {
