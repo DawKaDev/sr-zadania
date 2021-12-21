@@ -13,6 +13,7 @@ import Modul5 from "./pages/Modul5";
 import { Modul7 } from "./pages/Modul7";
 import Modul8 from "./pages/Modul8";
 import Modul9 from "./pages/Modul9";
+import Modul11 from "pages/Modul11";
 import Users from "./pages/Users";
 import UserProfile from "./pages/UserProfile";
 import UserDetails from "components/User/UserDetails";
@@ -84,6 +85,9 @@ function App() {
               <li>
                 <Link to="modul9">Moduł 9</Link>
               </li>
+              <li>
+                <Link to="modul11">Moduł 11</Link>
+              </li>
             </ul>
           </header>
           <div className="body__container">
@@ -101,6 +105,7 @@ function App() {
               <Route path="/users" component={Users}/>
               <Route path="/user-profile" component={UserProfile}/>
               <Route path="/subscriber/:profileID" component={Profile}/>
+              <Route path="/modul11" component={Modul11}/>
               <AccessContext.Provider value={access}>
                 <UserContext.Provider value={user}>
                   <Route path="/modul9" component={Modul9}/>
