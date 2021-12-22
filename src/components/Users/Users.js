@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function Users(props) {
-  const { users, fetchUsers, add } = props;
+  const { users, fetchAll, add, fetchTest} = props;
 
   const mockHandler = async () => {
     await fetch('/users',{
@@ -16,9 +16,10 @@ export default function Users(props) {
       {users.length && users.map((user, index) => (
         <p key={index}>{user.name}</p>
       ))}
-      <button onClick={() => fetchUsers()}>Fetch</button>
+      <button onClick={() => fetchAll()}>Fetch</button>
       <button onClick={() => add("Mark")}>Add new</button>
       <button onClick={() => mockHandler()}>Mock</button>
+      <button onClick={() => fetchTest()}>Test</button>
     </>
   )
 }
