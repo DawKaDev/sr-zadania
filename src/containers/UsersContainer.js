@@ -1,18 +1,23 @@
 import { connect } from 'react-redux';
-import { fetch, add, fetchUsers as fetchTest } from 'redux/actions/users';
+import { addUsers, fetchUsers, removeUsers } from 'redux/actions/users';
+import { addMessage } from 'redux/actions/ui';
 import Users from "components/Users";
 
 function mapStateToProps(state) {
   return {
-    users: state.users
+    users: state.users.data,
+    isLoading: state.users.isLoading,
+    isError: state.users.isError,
+    results: state.users.config.results
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    fetchAll: () => dispatch(fetch()),
-    add: (payload) => dispatch(add(payload)),
-    fetchTest: () => dispatch(fetchTest())
+    fetchUsers: (payload) => dispatch(fetchUsers(payload)),
+    add: (payload) => dispatch(addUsers(payload)),
+    remove: () => dispatch(removeUsers()),
+    addMessage: (payload) => dispatch(addMessage(payload))
   }
 }
 

@@ -1,12 +1,25 @@
-import { FETCH_USERS, ADD_USERS } from "../types/users";
+import { ADD_USERS, REMOVE_USERS, DATA_REQUESTED, DATA_ERROR } from "../types/users";
 import "../actions/users";
 
-export default function usersReducer(state = [], action) {
+const INITIAL_STATE = {
+  isLoading: false,
+  isError: false,
+  data: [],
+  config: {
+    results: 10
+  }
+}
+
+export default function usersReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
-    case FETCH_USERS:
-      return [...state, {name: "Dave"}];
     case ADD_USERS:
-      return [...state, {name: action.payload}];
+      return {...state, isLoading: false, isError: false, data: [...state.data, ...action.payload]};
+    case REMOVE_USERS:
+      return INITIAL_STATE;
+    case DATA_REQUESTED:
+      return {...state, isLoading: true, isError: false};
+    case DATA_ERROR:
+      return { ...state, isLoading: false, isError: true};
     default:
       return state;
   }

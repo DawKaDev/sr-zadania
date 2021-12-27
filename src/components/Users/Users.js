@@ -1,25 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 export default function Users(props) {
-  const { users, fetchAll, add, fetchTest} = props;
+  const { users, fetchUsers, remove, results, isLoading, isError } = props;
 
-  const mockHandler = async () => {
-    await fetch('/users',{
-      headers: {
-        'Content-Type': 'application.json'
-      }
-    }).then(response => response.json())
-    .then(data => console.log(data))
-  }
+  useEffect(() => {
+    if(!users.length){
+      fetchUsers(results)
+    }
+  },[])
+
   return (
     <>
-      {users.length && users.map((user, index) => (
-        <p key={index}>{user.name}</p>
+    {isLoading && <p>Loading...</p>}
+      {users.length && users.map((user) => (
+        <p key={user.index}>{user.name}</p>
       ))}
-      <button onClick={() => fetchAll()}>Fetch</button>
-      <button onClick={() => add("Mark")}>Add new</button>
-      <button onClick={() => mockHandler()}>Mock</button>
-      <button onClick={() => fetchTest()}>Test</button>
+      <button onClick={() => fetchUsers(results)}>Fetch</button>
+      <button onClick={() => fetchUsers()}>Add</button>
+      <button onClick={() => remove()}>Clear</button>
     </>
   )
 }
