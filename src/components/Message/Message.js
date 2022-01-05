@@ -1,11 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './style.scss';
 
-function Message({type, message}) {
+function Message(props) {
+  const { messages } = props;
   return (
-    <div className={`message message--${type}`}>
-      <p className='message__text'>{message}</p>
-    </div>
+    messages.map(({type, message}) => (
+      <div className={`message message--${type}`}>
+        <p className='message__text'>{message}</p>
+      </div>
+    ))
   )
 }
 
