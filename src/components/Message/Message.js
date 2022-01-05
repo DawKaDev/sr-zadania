@@ -5,8 +5,8 @@ import './style.scss';
 function Message(props) {
   const { messages } = props;
   return (
-    messages.map(({type, message}) => (
-      <div className={`message message--${type}`}>
+    messages.map(({type, message}, index) => (
+      <div key={index} className={`message message--${type}`}>
         <p className='message__text'>{message}</p>
       </div>
     ))
