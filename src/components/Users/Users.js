@@ -28,9 +28,12 @@ export default function Users(props) {
   return (
     <>
     {isLoading && <p>Loading...</p>}
-      {users.length && users.map((user) => (
-        <p key={user.id}>{user.name}</p>
-      ))}
+      {users.length > 0 
+        ? users.map((user) => (
+          <p key={user.id}>{user.name}</p>
+        ))
+        : <p>No data to display</p>
+      }
       <button onClick={()=>handleFetchUsers(results)}>Fetch</button>
       <button onClick={()=>handleFetchUsers(1)}>Add</button>
       <button onClick={()=>handleRemoveUsers()}>Clear</button>
