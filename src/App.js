@@ -14,13 +14,14 @@ import { Modul7 } from "./pages/Modul7";
 import Modul8 from "./pages/Modul8";
 import Modul9 from "./pages/Modul9";
 import Modul11 from "pages/Modul11";
-import Users from "./pages/Users";
+import UsersModule from "./pages/UsersModule";
 import UserProfile from "./pages/UserProfile";
 import UserDetails from "components/User/UserDetails";
 import Profile from "./pages/Profile";
 import Places from "components/Places";
 import Movies from "components/Movies";
 import useMobile from "hooks/useMobile";
+import Notifier from "containers/NotifierContainer";
 
 function App() {
   const [showMenu, setShowMenu] = useState(false);
@@ -91,6 +92,7 @@ function App() {
             </ul>
           </header>
           <div className="body__container">
+            <Notifier/>
             <Switch>
               <Route path="/komponenty" component={Komponenty}/>
               <Route path="/modul3" component={Modul3}/>
@@ -102,7 +104,7 @@ function App() {
               <Route path="/about"><Section title="About"/></Route>
               <Route path="/contact"><Section title="Contact"/></Route>
               <Route exact path="/users/:id" component={UserDetails}/>
-              <Route path="/users" component={Users}/>
+              <Route path="/users" component={UsersModule}/>
               <Route path="/user-profile" component={UserProfile}/>
               <Route path="/subscriber/:profileID" component={Profile}/>
               <Route path="/modul11" component={Modul11}/>

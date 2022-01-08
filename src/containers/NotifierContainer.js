@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
-import Message from 'components/Message';
+import Notifier from 'components/Notifier';
 
-import { removeMessage } from 'redux/actions/ui';
 import { getAllMessages } from 'redux/selectors/ui';
+import { removeMessage } from 'redux/actions/ui';
 
 function mapStateToProps(state) {
   return {
@@ -12,8 +12,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    remove: (payload) => dispatch(removeMessage(payload))
+    removeItem: (payload) => dispatch(removeMessage(payload))
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Message);
+export default connect(mapStateToProps, mapDispatchToProps)(Notifier);
