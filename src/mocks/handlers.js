@@ -12,12 +12,12 @@ export const handlers = [
     )
   }),
   rest.post('/message', (req, res, ctx) => {
-    const { type } = req.body;
-    if(type === 'success') {
+    const { data } = req.body;
+    if(data.name.toLowerCase() === 'adam') {
       return res(
         ctx.status(200),
         ctx.json({
-          type: type,
+          type: 'success',
           message: 'Message send successful!'
         })
       )
@@ -25,8 +25,8 @@ export const handlers = [
     return res(
       ctx.status(400),
       ctx.json({
-        type: type,
-        message: 'Message send failed!'
+        type: 'error',
+        message: 'Message send failed! Try with name Adam'
       })
     )
   })
